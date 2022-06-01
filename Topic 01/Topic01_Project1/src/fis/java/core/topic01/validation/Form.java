@@ -1,12 +1,13 @@
 package fis.java.core.topic01.validation;
 
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Form {
-    public List<Student> components = new ArrayList<>();
-    public void addComponent(Student student){
+    public List<Component> components = new ArrayList<>();
+    public void addComponent(Component component){
 
     }
 
