@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@SequenceGenerator(name = "seqStorageGen", allocationSize = 1)
+//@SequenceGenerator(name = "seqStorageGen", allocationSize = 1)
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data

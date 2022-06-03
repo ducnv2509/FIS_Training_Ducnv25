@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import java.util.HashSet;
 import java.util.Set;
 
-@SequenceGenerator(name = "seqStorageGen", allocationSize = 1)
+//@SequenceGenerator(name = "seqStorageGen", allocationSize = 1)
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data

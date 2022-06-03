@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import java.time.LocalDateTime;
 
 
-@SequenceGenerator(name = "seqPersonGen", allocationSize = 1)
+//@SequenceGenerator(name = "seqPersonGen", allocationSize = 1)
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data

@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@SequenceGenerator(name = "seqCriminalCaseGen", allocationSize = 1)
+//@SequenceGenerator(name = "seqCriminalCaseGen", allocationSize = 1)
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
