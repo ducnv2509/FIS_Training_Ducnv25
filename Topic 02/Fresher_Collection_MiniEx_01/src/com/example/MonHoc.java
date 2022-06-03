@@ -1,6 +1,6 @@
 package com.example;
 
-public class MonHoc {
+public class MonHoc implements Comparable<MonHoc> {
     private String ten;
     private int tcLT;
     private int tcTH;
@@ -44,5 +44,32 @@ public class MonHoc {
             return ((MonHoc) that).ten.equals(this.ten);
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = ten.hashCode();
+        result = 31 * result + tcLT;
+        result = 31 * result + tcTH;
+        return result;
+    }
+
+    @Override
+    public int compareTo(MonHoc that) {
+        if (this.ten.compareTo(that.ten) > 0) {
+            return 1;
+        } else if (this.ten.compareTo(that.ten) < 0) {
+            return -1;
+        }
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "MonHoc{" +
+                "ten='" + ten + '\'' +
+                ", tcLT=" + tcLT +
+                ", tcTH=" + tcTH +
+                '}';
     }
 }
