@@ -22,6 +22,17 @@ public abstract class AbstractEntity implements Serializable {
     private LocalDateTime createAt;
     private LocalDateTime modifiedAt;
 
+    public AbstractEntity() {
+
+    }
+
+    public AbstractEntity(Long id, Integer version, LocalDateTime createAt, LocalDateTime modifiedAt) {
+        this.id = id;
+        this.version = version;
+        this.createAt = createAt;
+        this.modifiedAt = modifiedAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

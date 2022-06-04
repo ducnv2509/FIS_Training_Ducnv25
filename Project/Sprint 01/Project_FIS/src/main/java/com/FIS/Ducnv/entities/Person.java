@@ -27,11 +27,17 @@ public class Person extends AbstractEntity {
     @Column(nullable = false)
     private LocalDateTime hiringDate;
 
-    public Person(String username, String firstName, String lastName, String password, LocalDateTime hiringDate) {
+
+    public Person(Long id, Integer version, LocalDateTime createAt, LocalDateTime modifiedAt, String username, String firstName, String lastName, String password, LocalDateTime hiringDate) {
+        super(id, version, createAt, modifiedAt);
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.hiringDate = hiringDate;
+    }
+
+    public Person() {
+        super();
     }
 }

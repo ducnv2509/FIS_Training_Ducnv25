@@ -15,7 +15,7 @@ public class PersonDAO implements DAO<Person> {
         Date now = Calendar.getInstance().getTime();
         Instant instant = now.toInstant();
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
-        personList.add(new Person("duc001", "Duc", "Nguyen Van", "123123", localDateTime));
+        personList.add(new Person(1L, 1, localDateTime, localDateTime, "duc001", "Duc", "Nguyen Van", "123123", localDateTime));
     }
 
     @Override
@@ -48,6 +48,9 @@ public class PersonDAO implements DAO<Person> {
     }
 
     public static void main(String[] args) {
-        new PersonDAO().getAll().forEach(System.out::println);
+//        new PersonDAO().getAll().forEach(System.out::println);
+        Person person = new PersonDAO().get(1L).get();
+        System.out.println(person);
+
     }
 }

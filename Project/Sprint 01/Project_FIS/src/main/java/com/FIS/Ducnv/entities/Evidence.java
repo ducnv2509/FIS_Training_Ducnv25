@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,4 +32,23 @@ public class Evidence extends AbstractEntity{
 
     @OneToMany(mappedBy = "evidence", cascade = CascadeType.PERSIST)
     private Set<TrackEntry> trackEntries = new HashSet<>();;
+
+    public Evidence(CriminalCase criminalCase, Storage storage, String number, String itemName, String notes, Boolean archived) {
+        this.criminalCase = criminalCase;
+        this.storage = storage;
+        this.number = number;
+        this.itemName = itemName;
+        this.notes = notes;
+        this.archived = archived;
+    }
+
+    public Evidence(Long id, Integer version, LocalDateTime createAt, LocalDateTime modifiedAt, CriminalCase criminalCase, Storage storage, String number, String itemName, String notes, Boolean archived) {
+        super(id, version, createAt, modifiedAt);
+        this.criminalCase = criminalCase;
+        this.storage = storage;
+        this.number = number;
+        this.itemName = itemName;
+        this.notes = notes;
+        this.archived = archived;
+    }
 }

@@ -38,5 +38,15 @@ public class Detective extends AbstractEntity{
     @OneToMany(mappedBy = "detective")
     private Set<TrackEntry> trackEntries;
 
+    public Detective() {
+        super();
+    }
 
+    public Detective(Person person, String badgeNumber, Rank rank, Boolean armed, EmploymentStatus status) {
+        this.person = person;
+        this.badgeNumber = badgeNumber;
+        this.rank = rank;
+        this.armed = armed;
+        this.status = status;
+    }
 }
