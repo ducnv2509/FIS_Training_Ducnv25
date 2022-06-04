@@ -63,6 +63,7 @@ public class SimpleCustomerService implements CustomerService {
     }
 
     private void validate(Customer customer) {
+        LocalDate currentDate = null;
         if(isNullOrEmpty(customer.getName())){
             throw new DuplicateCustomerException(customer,"Customer name not valid");
         }
@@ -80,6 +81,14 @@ public class SimpleCustomerService implements CustomerService {
         }
         if(customer.getName().matches("^[a-zA-Z]+$")){
             throw new DuplicateCustomerException(customer,"Customer name not valid");
+        }
+        if(Period.between(LocalDate.ofEpochDay(customer.getBirthDay().getYear()), currentDate).getYears() < 8){
+            throw new DuplicateCustomerException(customer,"Customer DOB not valid");
+        }
+        if (!customer.getMobile().matches("(0[3|5|7|8|9])+([0-9]{8})")) {
+            throw new DuplicateCustomerException(customer,"Customer mobile not valid");
+        } else if (customer.getMobile().isEmpty()) {
+            throw new IllegalArgumentException("Số điện thoại không hợp lệ");
         }
     }
 
