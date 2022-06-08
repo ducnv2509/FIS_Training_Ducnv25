@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54f09241-68c0-438c-a5bf-18a004cd1726" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dao/DAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dao/mem/CriminalCaseDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dao/mem/DetectiveDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dao/mem/EvidenceDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dao/mem/PersonDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dao/mem/StorageDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dao/mem/TrackEntryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dto/CriminalCaseDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dto/DAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dto/DetectiveDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dto/EvidenceDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dto/PersonDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dto/StorageDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/dto/TrackEntryDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/CriminalCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/CriminalCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/Detective.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/Detective.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/Evidence.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/Evidence.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Project/Sprint 01/Project_FIS/src/main/java/com/FIS/Ducnv/entities/Person.java" afterDir="false" />
-    </list>
+    <list default="true" id="54f09241-68c0-438c-a5bf-18a004cd1726" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
