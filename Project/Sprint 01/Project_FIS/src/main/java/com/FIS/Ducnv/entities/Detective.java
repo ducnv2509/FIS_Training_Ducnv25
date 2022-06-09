@@ -1,11 +1,15 @@
 package com.fis.ducnv.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fis.ducnv.util.DateFormatter;
 import com.fis.ducnv.util.EmploymentStatus;
 import com.fis.ducnv.util.Rank;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,18 +19,17 @@ import java.util.Set;
 @Data
 public class Detective extends AbstractEntity{
 
-    @OneToOne
-    @JoinColumn(name = "PERSON_ID")
-    private Person person;
-
     private String badgeNumber;
+
 
     @Enumerated(EnumType.STRING)
     private Rank rank;
 
+
     private Boolean armed = false;
+
     @Enumerated(EnumType.STRING)
-    private EmploymentStatus status = EmploymentStatus.ACTIVE;
+    private EmploymentStatus status;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
@@ -38,15 +41,9 @@ public class Detective extends AbstractEntity{
     @OneToMany(mappedBy = "detective")
     private Set<TrackEntry> trackEntries;
 
+
     public Detective() {
         super();
     }
 
-    public Detective(Person person, String badgeNumber, Rank rank, Boolean armed, EmploymentStatus status) {
-        this.person = person;
-        this.badgeNumber = badgeNumber;
-        this.rank = rank;
-        this.armed = armed;
-        this.status = status;
-    }
 }

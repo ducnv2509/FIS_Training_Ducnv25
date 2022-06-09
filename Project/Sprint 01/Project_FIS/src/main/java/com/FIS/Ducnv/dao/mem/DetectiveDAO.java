@@ -1,9 +1,7 @@
-package com.fis.ducnv.dto;
+package com.fis.ducnv.dao.mem;
 
+import com.fis.ducnv.dao.DAO;
 import com.fis.ducnv.entities.Detective;
-import com.fis.ducnv.entities.Person;
-import com.fis.ducnv.util.EmploymentStatus;
-import com.fis.ducnv.util.Rank;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +29,9 @@ public class DetectiveDAO implements DAO<Detective> {
     @Override
     public void update(Detective detective) {
         get(detective.getId()).ifPresent(e -> {
-            e.setPerson(e.getPerson());
+//            e.setPerson(e.getPerson());
             e.setBadgeNumber(e.getBadgeNumber());
-            e.setRank(e.getRank());
+//            e.setRank(e.getRank());
             e.setArmed(e.getArmed());
             e.setStatus(e.getStatus());
         });

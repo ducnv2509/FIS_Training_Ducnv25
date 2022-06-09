@@ -7,7 +7,7 @@ public enum Rank {
     INSPECTOR(4),
     CHIEF_INSPECTOR(5);
 
-    private int value;
+    private final int value;
 
     Rank(int value) {
         this.value = value;

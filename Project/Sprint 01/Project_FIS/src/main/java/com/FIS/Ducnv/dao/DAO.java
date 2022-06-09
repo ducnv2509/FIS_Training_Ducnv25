@@ -1,4 +1,4 @@
-package com.fis.ducnv.dto;
+package com.fis.ducnv.dao;
 
 import java.util.List;
 import java.util.Optional;

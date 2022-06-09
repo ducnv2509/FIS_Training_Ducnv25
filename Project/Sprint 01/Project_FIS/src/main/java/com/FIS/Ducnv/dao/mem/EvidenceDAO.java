@@ -1,5 +1,6 @@
-package com.fis.ducnv.dto;
+package com.fis.ducnv.dao.mem;
 
+import com.fis.ducnv.dao.DAO;
 import com.fis.ducnv.entities.CriminalCase;
 import com.fis.ducnv.entities.Evidence;
 import com.fis.ducnv.entities.Storage;
