@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 //@SequenceGenerator(name = "seqStorageGen", allocationSize = 1)
 @EqualsAndHashCode(callSuper = true)
@@ -13,7 +14,7 @@ import java.time.LocalDate;
 @Data
 public class TrackEntry extends AbstractEntity {
 
-    private LocalDate date;
+    private LocalDateTime date;
 
     @ManyToOne
     @JoinColumn(name = "evidence_fk", nullable = false)

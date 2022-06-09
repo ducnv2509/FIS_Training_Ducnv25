@@ -51,4 +51,7 @@ public class Evidence extends AbstractEntity{
         this.notes = notes;
         this.archived = archived;
     }
+
+    public Evidence() {
+    }
 }

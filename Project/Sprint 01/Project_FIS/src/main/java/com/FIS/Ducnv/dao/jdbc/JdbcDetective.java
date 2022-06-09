@@ -41,7 +41,7 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
 
     @Override
     public List<Detective> selectAll() {
-        return null;
+        return selectBySql(SELECT_ALL);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
                 Person p = new Person();
                 p.setId(rs.getLong(9));
                 detective.setPerson(p);
-
+                list.add(detective);
             }
         } catch (Exception e) {
             e.printStackTrace();

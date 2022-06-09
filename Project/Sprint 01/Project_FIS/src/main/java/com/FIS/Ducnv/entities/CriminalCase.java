@@ -1,8 +1,11 @@
 package com.fis.ducnv.entities;
 
 import com.fis.ducnv.util.CaseType;
+import com.sun.istack.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -12,10 +15,18 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CriminalCase extends AbstractEntity{
 
+
     private String number;
+
+    @NotNull
+    @Column(name="case_type")
+    @Enumerated(EnumType.STRING)
     private CaseType type;
+
     private String shortDescription;
     private String detailedDescription;
 
