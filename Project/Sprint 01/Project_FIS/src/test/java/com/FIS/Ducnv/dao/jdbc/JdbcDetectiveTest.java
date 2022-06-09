@@ -17,13 +17,13 @@ class JdbcDetectiveTest {
         dec.setVersion(2);
         dec.setArmed(true);
         dec.setBadgeNumber("221");
-        dec.setFirstName("Duc");
-        dec.setHiringDate(LocalDateTime.now());
-        dec.setLastName("Nguyen");
-        dec.setPassword("12312313");
+//        dec.setFirstName("Duc");
+//        dec.setHiringDate(LocalDateTime.now());
+//        dec.setLastName("Nguyen");
+//        dec.setPassword("12312313");
         dec.setRank(Rank.valueOf("JUNIOR"));
         dec.setStatus(EmploymentStatus.valueOf("ACTIVE"));
-        dec.setUsername("ducnv");
+//        dec.setUsername("ducnv");
         detective.insert(dec);
         System.out.println(dec.toString());
         System.out.println("DONE");

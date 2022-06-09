@@ -2,6 +2,7 @@ package com.fis.ducnv.dao.jdbc;
 
 import com.fis.ducnv.dao.JdbcDAO;
 import com.fis.ducnv.entities.Detective;
+import com.fis.ducnv.entities.Person;
 import com.fis.ducnv.helper.JdbcHelper;
 import com.fis.ducnv.util.EmploymentStatus;
 import com.fis.ducnv.util.Rank;
@@ -13,9 +14,9 @@ import java.util.List;
 
 public class JdbcDetective extends JdbcDAO<Detective, Long> {
     String INSERT = "insert into detective\n" +
-            "(create_at, modified_at, version, armed, badge_number, first_name, hiring_date, last_name, password, `rank`, status, username)\n" +
+            "(create_at, modified_at, version, armed, badge_number, `rank`, status, person_id)\n" +
             "values \n" +
-            "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            "(?, ?, ?, ?, ?, ?, ?, ?)";
     String UPDATE = "update detective\n" +
             "set modified_at = ?, version = ?, armed = ?, badge_number = ?" +
             "where id = ?";
@@ -25,7 +26,7 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
 
     @Override
     public void insert(Detective e) {
-        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getArmed(), e.getBadgeNumber(), e.getFirstName(), e.getHiringDate(), e.getLastName(), e.getPassword(), e.getRank(), e.getStatus(), e.getUsername());
+        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getArmed(), e.getBadgeNumber(), e.getRank(), e.getStatus(), e.getPerson());
     }
 
     @Override
@@ -64,9 +65,9 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
                 detective.setBadgeNumber(rs.getString(6));
                 detective.setRank(Rank.valueOf(rs.getString(7)));
                 detective.setStatus(EmploymentStatus.valueOf(rs.getString(8)));
-//                Person p = new Person();
-//                p.setId(rs.getLong(9));
-//                detective.setPerson(p);
+                Person p = new Person();
+                p.setId(rs.getLong(9));
+                detective.setPerson(p);
 
             }
         } catch (Exception e) {

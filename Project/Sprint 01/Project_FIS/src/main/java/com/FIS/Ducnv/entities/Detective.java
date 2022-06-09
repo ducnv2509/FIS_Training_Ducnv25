@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fis.ducnv.util.DateFormatter;
 import com.fis.ducnv.util.EmploymentStatus;
 import com.fis.ducnv.util.Rank;
+import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -19,8 +20,13 @@ import java.util.Set;
 @Data
 public class Detective extends AbstractEntity{
 
-    private String badgeNumber;
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "PERSON_ID")
+    private Person person;
 
+    @Column(unique = true, nullable = false)
+    private String badgeNumber;
 
     @Enumerated(EnumType.STRING)
     private Rank rank;
