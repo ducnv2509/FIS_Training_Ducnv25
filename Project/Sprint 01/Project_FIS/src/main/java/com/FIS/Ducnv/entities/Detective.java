@@ -50,7 +50,7 @@ public class Detective extends AbstractEntity{
     @Override
     public String toString() {
         return "Detective{" +
-                "person=" + person.getId() + person.getFirstName() + person.getLastName() + person.getUsername() + person.getCreateAt() +
+                "person=" + person.getId() + person.getUsername() +
                 ", badgeNumber='" + badgeNumber + '\'' +
                 ", rank=" + rank +
                 ", armed=" + armed +

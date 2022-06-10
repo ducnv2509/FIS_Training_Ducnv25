@@ -6,6 +6,7 @@ import com.fis.ducnv.entities.Person;
 import com.fis.ducnv.helper.JdbcHelper;
 import com.fis.ducnv.util.EmploymentStatus;
 import com.fis.ducnv.util.Rank;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
@@ -15,20 +16,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcDetective extends JdbcDAO<Detective, Long> {
-    String INSERT = "insert into detective\n" +
-            "(create_at, modified_at, version, armed, badge_number, `rank`, status, person_id)\n" +
-            "values \n" +
-            "(?, ?, ?, ?, ?, ?, ?, ?)";
+    String INSERT_PERSON = "insert into person (create_at, modified_at, version, first_name, hiring_date, last_name, password, username)\n" +
+            "values (?, ?, ?, ?, ?, ?, ?, ?)\n" +
+            "";
+    String INSERT_DETECTIVE = "insert into detective (create_at, modified_at, version, armed, badge_number, `rank`, status, person_id)\n" +
+            "values (?, ?, ?, ?, ?, ?, ?, (SELECT person.id FROM person ORDER BY person.id DESC limit 1));";
     String UPDATE = "update detective\n" +
             "set modified_at = ?, version = ?, armed = ?, badge_number = ?" +
             "where id = ?";
     String DELETE = "delete from detective where  id = ?";
-    String SELECT_ALL = "select * from detective";
-    String SELECT_BY_ID = "select * from detective where id = ?";
+    String SELECT_ALL = "select * from detective join person p on detective.person_id = p.id";
+    String SELECT_BY_ID = "select * from detective join person p on detective.person_id = p.id where detective.id = ?";
 
     @Override
     public void insert(Detective e) {
-        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getArmed(), e.getBadgeNumber(), e.getRank()+"", e.getStatus() +"", e.getPerson().getId());
+        JdbcHelper.update(INSERT_PERSON, e.getPerson().getCreateAt(), e.getPerson().getModifiedAt(), e.getPerson().getVersion(), e.getPerson().getFirstName(),
+                e.getPerson().getHiringDate(), e.getPerson().getLastName(), e.getPerson().getPassword(), e.getPerson().getUsername());
+        JdbcHelper.update(INSERT_DETECTIVE,
+                LocalDateTime.now(), LocalDateTime.now(), e.getVersion(),
+                e.getArmed(), e.getBadgeNumber(), e.getRank() + "", e.getStatus() + "");
     }
 
     @Override
@@ -69,7 +75,7 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
                 detective.setStatus(EmploymentStatus.valueOf(rs.getString(8)));
                 Person p = new Person();
                 p.setId(rs.getLong(9));
-
+                p.setUsername(rs.getString(18));
                 detective.setPerson(p);
                 list.add(detective);
             }

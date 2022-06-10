@@ -15,14 +15,20 @@ class JdbcDetectiveTest {
     void insert() {
         JdbcDetective detective = new JdbcDetective();
         Detective dec = new Detective();
-//        dec.setPerson();
-        dec.setVersion(2);
+        Person person = new Person();
+        person.setCreateAt(LocalDateTime.now());
+        person.setModifiedAt(LocalDateTime.now());
+        person.setVersion(1);
+        person.setFirstName("Vu");
+        person.setHiringDate(LocalDateTime.now());
+        person.setLastName("Dang Dinh Vu ");
+        person.setPassword("1234567");
+        person.setUsername("vudd");
+        dec.setVersion(1);
         dec.setArmed(true);
-        dec.setBadgeNumber("221");
+        dec.setBadgeNumber("0912871271");
         dec.setRank(Rank.valueOf("JUNIOR"));
         dec.setStatus(EmploymentStatus.valueOf("ACTIVE"));
-        Person person = new Person();
-        person.setId(1L);
         dec.setPerson(person);
         detective.insert(dec);
         System.out.println(dec.toString());
@@ -44,7 +50,8 @@ class JdbcDetectiveTest {
 
     @Test
     void delete() {
-
+        JdbcDetective detective = new JdbcDetective();
+        detective.delete(8L);
     }
 
     @Test
@@ -55,9 +62,8 @@ class JdbcDetectiveTest {
 
     @Test
     void selectById() {
+        JdbcDetective detective = new JdbcDetective();
+        System.out.println(detective.selectById(8L));
     }
 
-    @Test
-    void selectBySql() {
-    }
 }
