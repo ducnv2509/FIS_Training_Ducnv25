@@ -8,7 +8,9 @@ import com.fis.ducnv.util.EmploymentStatus;
 import com.fis.ducnv.util.Rank;
 
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,7 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
 
     @Override
     public void insert(Detective e) {
-        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getArmed(), e.getBadgeNumber(), e.getRank(), e.getStatus(), e.getPerson());
+        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getArmed(), e.getBadgeNumber(), e.getRank()+"", e.getStatus() +"", e.getPerson().getId());
     }
 
     @Override
@@ -58,8 +60,8 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
             while (rs.next()) {
                 Detective detective = new Detective();
                 detective.setId(rs.getLong(1));
-                detective.setCreateAt(LocalDateTime.from(rs.getDate(2).toInstant()));
-                detective.setModifiedAt(LocalDateTime.from(rs.getDate(3).toInstant()));
+                detective.setCreateAt(rs.getDate(2).toLocalDate().atStartOfDay());
+                detective.setModifiedAt(rs.getDate(3).toLocalDate().atStartOfDay());
                 detective.setVersion(rs.getInt(4));
                 detective.setArmed(rs.getBoolean(5));
                 detective.setBadgeNumber(rs.getString(6));
@@ -67,6 +69,7 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
                 detective.setStatus(EmploymentStatus.valueOf(rs.getString(8)));
                 Person p = new Person();
                 p.setId(rs.getLong(9));
+
                 detective.setPerson(p);
                 list.add(detective);
             }

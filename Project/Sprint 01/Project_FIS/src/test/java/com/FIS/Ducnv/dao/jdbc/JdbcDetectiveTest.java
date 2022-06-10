@@ -2,6 +2,7 @@ package com.FIS.Ducnv.dao.jdbc;
 
 import com.fis.ducnv.dao.jdbc.JdbcDetective;
 import com.fis.ducnv.entities.Detective;
+import com.fis.ducnv.entities.Person;
 import com.fis.ducnv.util.EmploymentStatus;
 import com.fis.ducnv.util.Rank;
 import org.junit.jupiter.api.Test;
@@ -14,16 +15,15 @@ class JdbcDetectiveTest {
     void insert() {
         JdbcDetective detective = new JdbcDetective();
         Detective dec = new Detective();
+//        dec.setPerson();
         dec.setVersion(2);
         dec.setArmed(true);
         dec.setBadgeNumber("221");
-//        dec.setFirstName("Duc");
-//        dec.setHiringDate(LocalDateTime.now());
-//        dec.setLastName("Nguyen");
-//        dec.setPassword("12312313");
         dec.setRank(Rank.valueOf("JUNIOR"));
         dec.setStatus(EmploymentStatus.valueOf("ACTIVE"));
-//        dec.setUsername("ducnv");
+        Person person = new Person();
+        person.setId(1L);
+        dec.setPerson(person);
         detective.insert(dec);
         System.out.println(dec.toString());
         System.out.println("DONE");
@@ -44,10 +44,13 @@ class JdbcDetectiveTest {
 
     @Test
     void delete() {
+
     }
 
     @Test
     void selectAll() {
+        JdbcDetective detective = new JdbcDetective();
+        System.out.println(detective.selectAll());
     }
 
     @Test
