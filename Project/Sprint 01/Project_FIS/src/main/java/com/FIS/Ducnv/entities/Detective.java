@@ -47,18 +47,7 @@ public class Detective extends AbstractEntity{
     @OneToMany(mappedBy = "detective")
     private Set<TrackEntry> trackEntries;
 
-    @Override
-    public String toString() {
-        return "Detective{" +
-                "person=" + person.getId() + person.getUsername() +
-                ", badgeNumber='" + badgeNumber + '\'' +
-                ", rank=" + rank +
-                ", armed=" + armed +
-                ", status=" + status +
-                ", criminalCases=" + criminalCases +
-                ", trackEntries=" + trackEntries +
-                '}';
-    }
+
 
     public Detective() {
         super();

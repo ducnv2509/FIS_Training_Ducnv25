@@ -5,6 +5,7 @@ import com.fis.ducnv.dao.JdbcDAO;
 import com.fis.ducnv.entities.CriminalCase;
 import com.fis.ducnv.entities.Detective;
 import com.fis.ducnv.helper.JdbcHelper;
+import com.fis.ducnv.util.CaseStatus;
 import com.fis.ducnv.util.CaseType;
 
 import java.sql.ResultSet;
@@ -14,25 +15,24 @@ import java.util.List;
 
 public class JdbcCriminal_Case extends JdbcDAO<CriminalCase, Long> {
 
-    String INSERT = "insert  into criminal_case\n" +
-            "(create_at, modified_at, version, detailed_description, notes, number, short_description, status, type, lead_investigator)\n" +
-            "values\n" +
+    String INSERT = "insert into criminal_case\n" +
+            "(create_at, modified_at, version, detailed_description, notes, number, short_description, status, case_type, lead_investigator) VALUES \n" +
             "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     String UPDATE = "update criminal_case\n" +
-            "set modified_at = ?, version = ?, detailed_description = ?, notes = ?, number = ?, short_description = ?,\n" +
-            "    status = ?, type = ?, lead_investigator = ?\n" +
+            "set modified_at = ?, version = ?, detailed_description = ?, notes = ?, number = ?\n" +
+            ", short_description = ?, status = ?, case_type = ?, lead_investigator = ?\n" +
             "where  id = ?";
     String DELETE = "delete from criminal_case where  id = ?";
     String SELECT_ALL = "select * from criminal_case";
     String SELECT_BY_ID = "select * from criminal_case where id = ?";
     @Override
     public void insert(CriminalCase e) {
-        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getDetailedDescription(), e.getNotes(), e.getNumber(), e.getShortDescription(), e.getStatus(), e.getType(), e.getLeadInvestigator());
+        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getDetailedDescription(), e.getNotes(), e.getNumber(), e.getShortDescription(), e.getStatus()+"", e.getType()+"", e.getLeadInvestigator().getId());
     }
 
     @Override
     public void update(CriminalCase e) {
-        JdbcHelper.update(UPDATE, e.getModifiedAt(), e.getVersion(), e.getDetailedDescription(), e.getNotes(), e.getNumber(), e.getShortDescription(), e.getStatus(), e.getType(), e.getLeadInvestigator(), e.getId());
+        JdbcHelper.update(UPDATE, LocalDateTime.now(), e.getVersion(), e.getDetailedDescription(), e.getNotes(), e.getNumber(), e.getShortDescription(), e.getStatus()+"", e.getType()+"", e.getLeadInvestigator().getId(), e.getId());
     }
 
     @Override
@@ -59,14 +59,14 @@ public class JdbcCriminal_Case extends JdbcDAO<CriminalCase, Long> {
             while (rs.next()){
                 CriminalCase criminalCase = new CriminalCase();
                 criminalCase.setId(rs.getLong(1));
-                criminalCase.setModifiedAt(LocalDateTime.from(rs.getDate(3).toInstant()));
-                criminalCase.setCreateAt(LocalDateTime.from(rs.getDate(2).toInstant()));
+                criminalCase.setModifiedAt(rs.getDate(3).toLocalDate().atStartOfDay());
+                criminalCase.setCreateAt(rs.getDate(2).toLocalDate().atStartOfDay());
                 criminalCase.setVersion(rs.getInt(4));
                 criminalCase.setDetailedDescription(rs.getString(5));
                 criminalCase.setNotes(rs.getString(6));
                 criminalCase.setNumber(rs.getString(7));
                 criminalCase.setShortDescription(rs.getString(8));
-                criminalCase.setStatus(CaseType.valueOf(rs.getString(9)));
+                criminalCase.setStatus(CaseStatus.valueOf(rs.getString(9)));
                 criminalCase.setType(CaseType.valueOf(rs.getString(10)));
                 Detective d = new Detective();
                 d.setId(rs.getLong(11));

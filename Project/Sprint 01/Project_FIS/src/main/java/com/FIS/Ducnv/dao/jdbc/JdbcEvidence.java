@@ -24,12 +24,12 @@ public class JdbcEvidence extends JdbcDAO<Evidence, Long> {
 
     @Override
     public void insert(Evidence e) {
-        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getArchived(), e.getItemName(), e.getNotes(), e.getNumber(), e.getCriminalCase(), e.getStorage());
+        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getArchived(), e.getItemName(), e.getNotes(), e.getNumber(), e.getCriminalCase().getId(), e.getStorage().getId());
     }
 
     @Override
     public void update(Evidence e) {
-        JdbcHelper.update(UPDATE, LocalDateTime.now(), e.getVersion(), e.getArchived(), e.getItemName(), e.getNotes(), e.getNumber(), e.getCriminalCase(), e.getStorage());
+        JdbcHelper.update(UPDATE, LocalDateTime.now(), e.getVersion(), e.getArchived(), e.getItemName(), e.getNotes(), e.getNumber(), e.getCriminalCase().getId(), e.getStorage().getId(), e.getId());
     }
 
     @Override
@@ -56,8 +56,8 @@ public class JdbcEvidence extends JdbcDAO<Evidence, Long> {
             while (rs.next()) {
                 Evidence evidence = new Evidence();
                 evidence.setId(rs.getLong(1));
-                evidence.setCreateAt(LocalDateTime.from(rs.getDate(2).toInstant()));
-                evidence.setModifiedAt(LocalDateTime.from(rs.getDate(3).toInstant()));
+                evidence.setCreateAt(rs.getDate(2).toLocalDate().atStartOfDay());
+                evidence.setModifiedAt(rs.getDate(3).toLocalDate().atStartOfDay());
                 evidence.setVersion(rs.getInt(4));
                 evidence.setArchived(rs.getBoolean(5));
                 evidence.setItemName(rs.getString(6));

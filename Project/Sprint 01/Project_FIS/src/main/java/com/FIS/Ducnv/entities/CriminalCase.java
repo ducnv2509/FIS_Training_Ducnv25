@@ -1,5 +1,6 @@
 package com.fis.ducnv.entities;
 
+import com.fis.ducnv.util.CaseStatus;
 import com.fis.ducnv.util.CaseType;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -31,7 +32,7 @@ public class CriminalCase extends AbstractEntity{
     private String detailedDescription;
 
     @Enumerated(EnumType.STRING)
-    private CaseType status;
+    private CaseStatus status;
 
     private String notes;
 

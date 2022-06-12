@@ -29,12 +29,12 @@ public class JdbcTrackEntry extends JdbcDAO<TrackEntry, Long> {
 
     @Override
     public void insert(TrackEntry e) {
-        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getAction(), e.getDate(), e.getReason(), e.getDetective(), e.getEvidence());
+        JdbcHelper.update(INSERT, LocalDateTime.now(), LocalDateTime.now(), e.getVersion(), e.getAction()+"", e.getDate(), e.getReason(), e.getDetective(), e.getEvidence());
     }
 
     @Override
     public void update(TrackEntry e) {
-        JdbcHelper.update(UPDATE, LocalDateTime.now(), e.getVersion(), e.getAction(), e.getDate(), e.getReason(), e.getDetective(), e.getEvidence(), e.getId());
+        JdbcHelper.update(UPDATE, LocalDateTime.now(), e.getVersion(), e.getAction() +"", e.getDate(), e.getReason(), e.getDetective(), e.getEvidence(), e.getId());
     }
 
     @Override
