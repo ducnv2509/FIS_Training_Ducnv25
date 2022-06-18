@@ -87,33 +87,33 @@ public class JdbcDetective extends JdbcDAO<Detective, Long> {
         return list;
     }
 
-    @Override
-    protected void prepareSta(PreparedStatement sttm, Object... args) throws SQLException {
-        for (int i = 0; i < args.length; i++) {
-            sttm.setObject(i + 1, args[i]);
-        }
-    }
-
-    @Override
-    protected Detective mappingEntity(ResultSet rs) throws SQLException {
-        Detective detective = new Detective();
-        detective.setId(rs.getLong(1));
-        detective.setCreateAt(rs.getDate(2).toLocalDate().atStartOfDay());
-        detective.setModifiedAt(rs.getDate(3).toLocalDate().atStartOfDay());
-        detective.setVersion(rs.getInt(4));
-        detective.setArmed(rs.getBoolean(5));
-        detective.setBadgeNumber(rs.getString(6));
-        detective.setRank(Rank.valueOf(rs.getString(7)));
-        detective.setStatus(EmploymentStatus.valueOf(rs.getString(8)));
-        Person p = new Person();
-        p.setId(rs.getLong(9));
-        p.setUsername(rs.getString(18));
-        detective.setPerson(p);
-        return detective;
-    }
-
-    protected List<Detective> selectDetective(String sql, Object... args) throws SQLException {
-        return selectBase(sql, args);
-    }
+//    @Override
+//    protected void prepareSta(PreparedStatement sttm, Object... args) throws SQLException {
+//        for (int i = 0; i < args.length; i++) {
+//            sttm.setObject(i + 1, args[i]);
+//        }
+//    }
+//
+//    @Override
+//    protected Detective mappingEntity(ResultSet rs) throws SQLException {
+//        Detective detective = new Detective();
+//        detective.setId(rs.getLong(1));
+//        detective.setCreateAt(rs.getDate(2).toLocalDate().atStartOfDay());
+//        detective.setModifiedAt(rs.getDate(3).toLocalDate().atStartOfDay());
+//        detective.setVersion(rs.getInt(4));
+//        detective.setArmed(rs.getBoolean(5));
+//        detective.setBadgeNumber(rs.getString(6));
+//        detective.setRank(Rank.valueOf(rs.getString(7)));
+//        detective.setStatus(EmploymentStatus.valueOf(rs.getString(8)));
+//        Person p = new Person();
+//        p.setId(rs.getLong(9));
+//        p.setUsername(rs.getString(18));
+//        detective.setPerson(p);
+//        return detective;
+//    }
+//
+//    protected List<Detective> selectDetective(String sql, Object... args) throws SQLException {
+//        return selectBase(sql, args);
+//    }
 
 }

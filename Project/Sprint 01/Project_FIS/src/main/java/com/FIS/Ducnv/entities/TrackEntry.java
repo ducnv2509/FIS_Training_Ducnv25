@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 //@SequenceGenerator(name = "seqStorageGen", allocationSize = 1)
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public class TrackEntry extends AbstractEntity {

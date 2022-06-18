@@ -28,22 +28,22 @@ public abstract class JdbcDAO<Entity, Key> {
     abstract protected List<Entity> selectBySql(String sql, Object... args);
 
 
-    protected abstract void prepareSta(PreparedStatement sttm, Object... args) throws SQLException;
-
-    protected abstract Entity mappingEntity(ResultSet resultSet) throws SQLException;
-
-    public final List<Entity> selectBase(String sql, Object... args) throws SQLException {
-
-        List<Entity> list = new ArrayList<>();
-        try (Connection conn = JdbcHelper.getConnection()) {
-            try (PreparedStatement sttm = conn.prepareStatement(sql)) {
-                prepareSta(sttm, args);
-                ResultSet rs = sttm.executeQuery();
-                while (rs.next()) {
-                    list.add(mappingEntity(rs));
-                }
-            }
-        }
-        return list;
-    }
+//    protected abstract void prepareSta(PreparedStatement sttm, Object... args) throws SQLException;
+//
+//    protected abstract Entity mappingEntity(ResultSet resultSet) throws SQLException;
+//
+//    public final List<Entity> selectBase(String sql, Object... args) throws SQLException {
+//
+//        List<Entity> list = new ArrayList<>();
+//        try (Connection conn = JdbcHelper.getConnection()) {
+//            try (PreparedStatement sttm = conn.prepareStatement(sql)) {
+//                prepareSta(sttm, args);
+//                ResultSet rs = sttm.executeQuery();
+//                while (rs.next()) {
+//                    list.add(mappingEntity(rs));
+//                }
+//            }
+//        }
+//        return list;
+//    }
 }

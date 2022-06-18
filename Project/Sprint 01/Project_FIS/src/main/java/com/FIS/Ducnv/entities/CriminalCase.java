@@ -13,7 +13,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 //@SequenceGenerator(name = "seqCriminalCaseGen", allocationSize = 1)
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
+@EqualsAndHashCode(callSuper = false)
 @Entity
 @Data
 @NoArgsConstructor

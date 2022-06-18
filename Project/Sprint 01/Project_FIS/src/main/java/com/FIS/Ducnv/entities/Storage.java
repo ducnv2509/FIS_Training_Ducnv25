@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 //@SequenceGenerator(name = "seqStorageGen", allocationSize = 1)
-@EqualsAndHashCode(callSuper = true)
+//@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public class Storage extends AbstractEntity {
