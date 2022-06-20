@@ -55,4 +55,9 @@ public class EvidenceDAO implements DAO<Evidence> {
     public void delete(Evidence evidence) {
         get(evidence.getId()).ifPresent(evidences::remove);
     }
+
+    @Override
+    public void deleteId(Long id) {
+
+    }
 }

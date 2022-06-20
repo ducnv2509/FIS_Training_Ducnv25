@@ -41,4 +41,9 @@ public class TrackEntryDAO implements DAO<TrackEntry> {
         get(trackEntry.getId()).ifPresent(trackEntries::remove);
     }
 
+    @Override
+    public void deleteId(Long id) {
+
+    }
+
 }

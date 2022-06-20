@@ -9,6 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,8 +21,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CriminalCase extends AbstractEntity{
-
-
     private String number;
 
     @NotNull
@@ -50,4 +49,6 @@ public class CriminalCase extends AbstractEntity{
             joinColumns=@JoinColumn(name="case_id", referencedColumnName="id"),
             inverseJoinColumns=@JoinColumn(name="detective_id", referencedColumnName="id"))
     private Set<Detective> assigned = new HashSet<>();
+
+
 }

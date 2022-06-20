@@ -41,4 +41,9 @@ public class DetectiveDAO implements DAO<Detective> {
     public void delete(Detective detective) {
         get(detective.getId()).ifPresent(detectives::remove);
     }
+
+    @Override
+    public void deleteId(Long id) {
+
+    }
 }

@@ -42,4 +42,9 @@ public class CriminalCaseDAO implements DAO<CriminalCase> {
     public void delete(CriminalCase criminalCase) {
         get(criminalCase.getId()).ifPresent(criminalCases::remove);
     }
+
+    @Override
+    public void deleteId(Long id) {
+
+    }
 }

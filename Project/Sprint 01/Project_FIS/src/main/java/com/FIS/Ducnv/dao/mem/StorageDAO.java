@@ -37,4 +37,9 @@ public class StorageDAO implements DAO<Storage> {
     public void delete(Storage storage) {
         get(storage.getId()).ifPresent(storages::remove);
     }
+
+    @Override
+    public void deleteId(Long id) {
+
+    }
 }
