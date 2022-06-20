@@ -7,10 +7,12 @@ import com.fis.ducnv.repository.EvidenceRepository;
 import com.fis.ducnv.service.DetectiveService;
 import com.fis.ducnv.service.EvidenceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class EvidenceServiceImpl implements EvidenceService {
 
     @Autowired
