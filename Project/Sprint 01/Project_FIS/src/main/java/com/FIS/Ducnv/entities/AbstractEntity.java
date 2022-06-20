@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 @MappedSuperclass
-//@Data
+@Data
 public abstract class AbstractEntity implements Serializable {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)

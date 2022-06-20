@@ -4,10 +4,12 @@ import com.fis.ducnv.entities.TrackEntry;
 import com.fis.ducnv.repository.TrackEntryRepository;
 import com.fis.ducnv.service.TrackEntryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class TrackEntryServiceImpl implements TrackEntryService {
 
     @Autowired

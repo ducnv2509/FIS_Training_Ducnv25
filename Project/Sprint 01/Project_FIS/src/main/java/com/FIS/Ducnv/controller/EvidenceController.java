@@ -17,7 +17,6 @@ public class EvidenceController {
     EvidenceService evidenceService;
 
     @GetMapping("/")
-
     public Set<Evidence> getEvidences() {
         return this.evidenceService.getEvidences();
     }
