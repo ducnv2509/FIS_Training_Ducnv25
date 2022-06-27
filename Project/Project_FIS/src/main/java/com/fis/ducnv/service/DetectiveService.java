@@ -2,6 +2,7 @@ package com.fis.ducnv.service;
 
 import com.fis.ducnv.entities.CriminalCase;
 import com.fis.ducnv.entities.Detective;
+import com.fis.ducnv.entities.Evidence;
 
 import java.util.Set;
 
@@ -15,5 +16,7 @@ public interface DetectiveService {
     Detective getDetective(Long id);
 
     void deleteDetective(Long id);
+
+
 
 }

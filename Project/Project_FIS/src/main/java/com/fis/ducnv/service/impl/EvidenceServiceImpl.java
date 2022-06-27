@@ -44,4 +44,9 @@ public class EvidenceServiceImpl implements EvidenceService {
         evidence.setId(id);
         this.evidenceRepository.delete(evidence);
     }
+
+    @Override
+    public Set<Evidence> findAllEvidenceOfTheSpecifiedCriminal() {
+        return this.evidenceRepository.findAllEvidenceOfTheSpecifiedCriminal();
+    }
 }

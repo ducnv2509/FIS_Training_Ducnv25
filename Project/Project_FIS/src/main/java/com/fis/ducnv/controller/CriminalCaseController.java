@@ -17,6 +17,11 @@ public class CriminalCaseController {
     @Autowired
     private CriminalCaseService criminalCaseService;
 
+    @GetMapping("chief-inspector")
+    public Set<CriminalCase> getAllCHIEF_INSPECTOR(){
+        return this.criminalCaseService.findAllCriminalCaseCHIEF_INSPECTOR();
+    }
+
     @PostMapping("/")
     public ResponseEntity<CriminalCase> addCriminalCase(@RequestBody CriminalCase criminalCase) {
         CriminalCase criminalCase1 = this.criminalCaseService.addCriminalCase(criminalCase);
@@ -37,4 +42,6 @@ public class CriminalCaseController {
     public Set<CriminalCase> getCriminalCases() {
         return this.criminalCaseService.getCriminalCases();
     }
+
+
 }
