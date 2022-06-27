@@ -13,6 +13,7 @@ import java.util.Set;
 @RequestMapping("/evidence")
 @CrossOrigin("*")
 public class EvidenceController {
+
     @Autowired
     EvidenceService evidenceService;
 
@@ -21,6 +22,10 @@ public class EvidenceController {
         return this.evidenceService.getEvidences();
     }
 
+    @GetMapping("/specified-criminal")
+    public Set<Evidence> getSpecifiedCriminal() {
+        return this.evidenceService.findAllEvidenceOfTheSpecifiedCriminal();
+    }
     @PostMapping("/")
     public ResponseEntity<Evidence> addEvidence(@RequestBody Evidence evidence) {
         return ResponseEntity.ok(this.evidenceService.addEvidence(evidence));

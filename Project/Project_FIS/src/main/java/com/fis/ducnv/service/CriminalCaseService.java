@@ -2,6 +2,7 @@ package com.fis.ducnv.service;
 
 import com.fis.ducnv.entities.CriminalCase;
 
+import java.util.List;
 import java.util.Set;
 
 public interface CriminalCaseService {
@@ -15,4 +16,5 @@ public interface CriminalCaseService {
 
     void deleteCriminalCase(Long id);
 
+    Set<CriminalCase> findAllCriminalCaseCHIEF_INSPECTOR();
 }

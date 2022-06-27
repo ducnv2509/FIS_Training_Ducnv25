@@ -3,6 +3,7 @@ package com.fis.ducnv.controller;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fis.ducnv.entities.CriminalCase;
 import com.fis.ducnv.entities.Detective;
+import com.fis.ducnv.entities.Evidence;
 import com.fis.ducnv.service.DetectiveService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,8 @@ import java.util.Set;
 public class DetectiveController {
     @Autowired
     DetectiveService detectiveService;
+
+
 
     @GetMapping("/")
     public Set<Detective> getDetectives() {

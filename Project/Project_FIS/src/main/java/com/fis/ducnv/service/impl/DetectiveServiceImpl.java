@@ -1,6 +1,7 @@
 package com.fis.ducnv.service.impl;
 
 import com.fis.ducnv.entities.Detective;
+import com.fis.ducnv.entities.Evidence;
 import com.fis.ducnv.repository.DetectiveRepository;
 import com.fis.ducnv.service.DetectiveService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,4 +42,5 @@ public class DetectiveServiceImpl implements DetectiveService {
         detective.setId(id);
         this.detectiveRepository.delete(detective);
     }
+
 }

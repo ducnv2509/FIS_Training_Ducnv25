@@ -16,4 +16,7 @@ public interface EvidenceService {
 
     void deleteEvidence(Long id);
 
+    Set<Evidence> findAllEvidenceOfTheSpecifiedCriminal();
+
+
 }
